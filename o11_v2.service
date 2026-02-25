@@ -1,0 +1,17 @@
+[Unit]
+Description=O11 OTT Streamer Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/root/o11-v2.2b1
+ExecStart=/root/o11-v2.2b1/o11_v22b1-DRMStuff -p 1234 -noramfs
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=infinity
+LimitNPROC=infinity
+
+[Install]
+WantedBy=multi-user.target
